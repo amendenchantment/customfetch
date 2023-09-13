@@ -5,6 +5,8 @@
 #    colors (f = foreground, b = background), and use the 'off'
 #    feature for anything you turn on.
 
+# TAKEN FROM https://gitlab.com/dwt1/shell-color-scripts/-/blob/master/colorscripts/
+
 initializeANSI()
 {
   esc=""
