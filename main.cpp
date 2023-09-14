@@ -7,33 +7,25 @@
 
 using namespace std;
 
-char *get_os() {
+const char *get_os() {
 #ifdef __APPLE__
-    return const_cast<char *>("macos");
+    return "macos";
 #endif
 #ifdef _WIN64
-    return const_cast<char *>("windows");
+    return "windows";
 #endif
-    return const_cast<char *>("unix");
+    return "unix";
 }
 
 int main() {
-    system("./color_blocks");
-
-    char *keywords[4] = {const_cast<char *>("LOGNAME"),
-                         const_cast<char *>("OS"), const_cast<char *>("SHELL"),
-                         const_cast<char *>("COLORTERM")};
-
-    int max_index = sizeof(keywords) / sizeof(keywords[0]);
+    char keywords[4][10] = {"LOGNAME", "OS", "SHELL", "COLORTERM"};
     for (char *keyword : keywords) {
-        system("echo \x1b[32m");
-        cout << keyword << ": ";
-        system("echo \x1b[0m");
+        cout << "\x1b[35;5m" << keyword << ": "
+             << "\x1b[0m";
         if (strcmp(keyword, "OS") == 0) {
             cout << get_os() << endl;
         } else {
-            char *retrieved_info = getenv(keyword);
-            cout << retrieved_info << endl;
+            cout << getenv(keyword) << endl;
         };
     };
 
