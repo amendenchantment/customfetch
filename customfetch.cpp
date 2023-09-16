@@ -14,7 +14,7 @@ const char *get_os() {
     return "unix";
 }
 
-std::string char_array_lower(char characters[]) {
+std::string char_array_lower (char characters[]) {
     std::string stringed_chars = characters;
     std::transform(stringed_chars.begin(), stringed_chars.end(),
                    stringed_chars.begin(),
