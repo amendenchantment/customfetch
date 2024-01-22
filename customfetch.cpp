@@ -35,5 +35,7 @@ int main() {
         };
     };
 
+    std::cout << "All your code are belong to us." << std::endl;
+
     return 1;
 }
